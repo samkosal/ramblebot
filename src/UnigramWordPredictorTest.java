@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class UnigramWordPredictorTest {
 
+    // Wave 4
     /**
      * Tests the train method by checking that the generated neighbor map matches the expected map.
      * 
@@ -53,6 +54,7 @@ class UnigramWordPredictorTest {
         assertEquals(expectedMap, neighborMap);
     }
 
+    // Wave 5
     /**
      * Tests the predictNextWord method using a different example to verify that the correct word
      * is predicted based on the training data.
@@ -112,7 +114,7 @@ class UnigramWordPredictorTest {
     }
 
 
-
+    // Wave 5
     /**
      * Tests the predictNextWord method probabilistically by performing multiple trials to check if
      * the predicted words appear with the expected frequencies.
