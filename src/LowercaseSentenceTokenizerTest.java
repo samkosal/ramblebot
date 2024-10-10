@@ -6,27 +6,38 @@ import static org.junit.jupiter.api.Assertions.*;
 class LowercaseSentenceTokenizerTest {
 
     @Test
-    void testTokenizeWithNoPeriod() {
+    void testTokenizeWithNoCapitalizationOrPeriod() {
         LowercaseSentenceTokenizer tokenizer = new LowercaseSentenceTokenizer();
-        Scanner scanner = new Scanner("This is a sentence without a period");
+        Scanner scanner = new Scanner("this is a lowercase sentence without a period");
         List<String> tokens = tokenizer.tokenize(scanner);
 
-        assertEquals(List.of("this", "is", "a", "sentence", "without", "a", "period"), tokens);
+        assertEquals(List.of("this", "is", "a", "lowercase", "sentence", "without", "a", "period"), tokens);
     }
+    
 
     @Test
-    void testTokenizeWithMultipleSpaces() {
+    void testTokenizeWithCapitalization() {
         LowercaseSentenceTokenizer tokenizer = new LowercaseSentenceTokenizer();
-        Scanner scanner = new Scanner("Hello   world.   This is an    example.");
+        Scanner scanner = new Scanner("This is a SENTENCE with sTrAnGe capitalization");
+        List<String> tokens = tokenizer.tokenize(scanner);
+
+        assertEquals(List.of("this", "is", "a", "sentence", "with", "strange", "capitalization"), tokens);
+    }
+
+
+    @Test
+    void testTokenizeSentenceWithPeriod() {
+        LowercaseSentenceTokenizer tokenizer = new LowercaseSentenceTokenizer();
+        Scanner scanner = new Scanner("Hello world. This is an example.");
         List<String> tokens = tokenizer.tokenize(scanner);
 
         assertEquals(List.of("hello", "world", ".", "this", "is", "an", "example", "."), tokens);
     }
 
     @Test
-    void testTokenizeSentenceWithPeriod() {
+    void testTokenizeWithMultipleSpaces() {
         LowercaseSentenceTokenizer tokenizer = new LowercaseSentenceTokenizer();
-        Scanner scanner = new Scanner("Hello world. This is an example.");
+        Scanner scanner = new Scanner("Hello   world.   This is an    example.");
         List<String> tokens = tokenizer.tokenize(scanner);
 
         assertEquals(List.of("hello", "world", ".", "this", "is", "an", "example", "."), tokens);
