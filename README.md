@@ -37,8 +37,10 @@ This is a large, difficult project. Start early, and get help when you need it.
     code .
     ```
     If the above command does not work, you can open VS Code manually and select the ramblebot folder to open.
-4. Open `RambleApp.java`
-5. Scroll to the bottom to find the `main` method. There should be a small grey "run" button above it. Click "Run". TODO: Add picture of run button.
+4. Open `RambleApp.java`. Click anywhere in the text of the file
+5. Scroll to the bottom to find the `main` method. There should be a small grey "run" button above it. Click "Run".
+![Run Button in VS Code](images/run_button.png)
+Sometimes this button takes a little bit to show up when you first open VS Code. If you're not seeing it, make sure you have the Java extension pack installed and it is active.
 6. It should ask you for a filename. Give it the following filename:
     ```
     wikipediaData.txt
@@ -52,8 +54,8 @@ This is a large, difficult project. Start early, and get help when you need it.
     Begin with Wave 1 in the instructions, and implement LowercaseSentenceTokenizer
     If you have implemented it, there's a bug in your code where it's returning null for the tokens.
     ```
-9. Open the testing side panel by clicking on the beaker on the left of your screen. TODO: add picture.
-10. Click the triangle next to ramblebot.
+9. Open the testing side panel by clicking on the beaker on the left of your screen. ![Test Runner Sidebar in VS Code](images/test_runner.png)
+10. Hover over `ramblebot`. A few grey triangles should appear. Click the triangle the furthest to the left.
 11. You should expect to see all the tests fail. This is good! You haven't written your solution yet, so it's expected for them to fail.
 12. Validate that you can push to your repo by making any change to this README, adding, committing, and pushing it.
 
