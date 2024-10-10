@@ -3,10 +3,10 @@ import java.util.List;
 import java.util.Map;
 import static org.junit.jupiter.api.Assertions.*;
 
-class UnigramWordPredictorTestWithFakeTokenizer {
+class UnigramWordPredictorTest {
 
     @Test
-    void testTrainAndGetNeighborMapWithFakeTokenizer() {
+    void testTrainAndGetNeighborMap() {
         // Use a fake tokenizer with predefined tokens
         FakeTokenizer fakeTokenizer = new FakeTokenizer(
             List.of("the", "cat", "sat", ".", "the", "cat", "slept", ".", "the", "dog", "barked", ".")
@@ -36,7 +36,7 @@ class UnigramWordPredictorTestWithFakeTokenizer {
     }
 
     @Test
-    void testPredictNextWordWithFakeTokenizer() {
+    void testPredictNextWord() {
         // Use a fake tokenizer with predefined tokens
         FakeTokenizer fakeTokenizer = new FakeTokenizer(
             List.of("the", "cat", "sat", ".", "the", "cat", "slept", ".", "the", "dog", "barked", ".")
