@@ -97,3 +97,8 @@ Consider doing any of the following (some are very hard!):
 - Making your Unigram predictor memory-efficient.
 - Making RambleApp memory-efficient
 - Anything else you find interesting!
+
+## Submitting
+Submit your project by making a PR and copying the link to the canvas assignment.
+
+TURN SOMETHING IN BY THE DUE DATE EVEN IF YOU'RE NOT FINISHED.
