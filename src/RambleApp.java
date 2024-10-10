@@ -11,14 +11,12 @@ public class RambleApp {
     private Scanner inputScanner;
 
     public RambleApp() {
-        // Initialize the tokenizer, predictor, and input scanner
         this.tokenizer = new LowercaseSentenceTokenizer();
         this.predictor = new UnigramWordPredictor(tokenizer);
         this.inputScanner = new Scanner(System.in);
     }
 
     public void run() {
-        // Run the main workflow
         String filename = promptForFilename();
         int numWords = promptForNumberOfWords();
 
@@ -31,13 +29,11 @@ public class RambleApp {
     }
 
     private String promptForFilename() {
-        // Prompt the user to enter the filename
         System.out.print("Enter the filename: ");
         return inputScanner.nextLine();
     }
 
     private int promptForNumberOfWords() {
-        // Prompt the user to enter the number of words to generate
         System.out.print("Enter the number of words to generate: ");
         int numWords = inputScanner.nextInt();
         inputScanner.nextLine(); // Consume the newline
@@ -45,7 +41,6 @@ public class RambleApp {
     }
 
     private boolean trainPredictor(String filename) {
-        // Train the predictor using the specified file
         File file = new File(filename);
         try (Scanner fileScanner = new Scanner(file)) {
             predictor.train(fileScanner);
@@ -59,6 +54,13 @@ public class RambleApp {
     private void generateText(int numWords, String filename) {
         // Get the tokens from the file to start the generation
         List<String> tokens = getTokensFromFile(filename);
+        if (tokens == null) {
+          System.out.println("No tokens returned from tokenizer!");
+          System.out.println("This is probably because you haven't implemented it yet");
+          System.out.println("Begin with Wave 1 in the instructions, and implement LowercaseSentenceTokenizer");
+          System.out.println("If you have implemented it, there's a bug in your code where it's returning null for the tokens.");
+          return;
+        }
         if (tokens.isEmpty()) {
             System.out.println("The file is empty. No text to generate.");
             return;
@@ -72,20 +74,22 @@ public class RambleApp {
         for (int i = 1; i < numWords; i++) {
             String nextWord = predictor.predictNextWord(context);
             if (nextWord == null) {
-                break; // Stop if no prediction can be made
+                System.out.println("No predition made from Predictor!");
+                System.out.println("This is probably because you haven't implemented it yet");
+                System.out.println("Implement it, and come back and try again");
+                System.out.println("If you have implemented it, there's a bug in your code where it's returning null for a prediction.");
+                break;
             }
             System.out.print(" " + nextWord);
 
-            // Update the context with the last word
-            context.clear();
+            // Update the context with the next word
             context.add(nextWord);
         }
 
-        System.out.println(); // Finish with a newline
+        System.out.println(); 
     }
 
     private List<String> getTokensFromFile(String filename) {
-        // Get the tokens from the file used to train the predictor
         File file = new File(filename);
         try (Scanner fileScanner = new Scanner(file)) {
             return tokenizer.tokenize(fileScanner);
