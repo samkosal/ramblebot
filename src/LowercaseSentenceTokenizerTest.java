@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class LowercaseSentenceTokenizerTest {
 
+    // Wave 1
     @Test
     void testTokenizeWithNoCapitalizationOrPeriod() {
         LowercaseSentenceTokenizer tokenizer = new LowercaseSentenceTokenizer();
@@ -13,8 +14,14 @@ class LowercaseSentenceTokenizerTest {
 
         assertEquals(List.of("this", "is", "a", "lowercase", "sentence", "without", "a", "period"), tokens);
     }
+
+    // Wave 2
+    /*
+     * Write your test here!
+     */
     
 
+    // Wave 3
     @Test
     void testTokenizeWithCapitalization() {
         LowercaseSentenceTokenizer tokenizer = new LowercaseSentenceTokenizer();
@@ -24,7 +31,7 @@ class LowercaseSentenceTokenizerTest {
         assertEquals(List.of("this", "is", "a", "sentence", "with", "strange", "capitalization"), tokens);
     }
 
-
+    // Wave 3
     @Test
     void testTokenizeSentenceWithPeriod() {
         LowercaseSentenceTokenizer tokenizer = new LowercaseSentenceTokenizer();
@@ -34,6 +41,7 @@ class LowercaseSentenceTokenizerTest {
         assertEquals(List.of("hello", "world", ".", "this", "is", "an", "example", "."), tokens);
     }
 
+    // Wave 3
     @Test
     void testTokenizeWithInternalPeriod() {
         LowercaseSentenceTokenizer tokenizer = new LowercaseSentenceTokenizer();
