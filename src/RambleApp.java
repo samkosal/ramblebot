@@ -11,19 +11,21 @@ import java.util.Scanner;
  */
 public class RambleApp {
 
-    private Tokenizer tokenizer;
-    private UnigramWordPredictor predictor;
-    private Scanner inputScanner;
+    private final Tokenizer tokenizer;
+    private final UnigramWordPredictor predictor;
+    private final Scanner inputScanner;
 
     /**
-     * Initializes the RambleApp by setting up the tokenizer, predictor,
-     * and input scanner. The tokenizer used is a LowercaseSentenceTokenizer,
-     * and the predictor is a UnigramWordPredictor.
+     * Initializes the RambleApp with the specified dependencies.
+     * 
+     * @param tokenizer the tokenizer used to process the input text
+     * @param predictor the UnigramWordPredictor used to generate predictions
+     * @param inputScanner the scanner for reading user input
      */
-    public RambleApp() {
-        this.tokenizer = new LowercaseSentenceTokenizer();
-        this.predictor = new UnigramWordPredictor(tokenizer);
-        this.inputScanner = new Scanner(System.in);
+    public RambleApp(Tokenizer tokenizer, UnigramWordPredictor predictor, Scanner inputScanner) {
+        this.tokenizer = tokenizer;
+        this.predictor = predictor;
+        this.inputScanner = inputScanner;
     }
 
     /**
@@ -149,11 +151,17 @@ public class RambleApp {
 
     /**
      * The entry point for the application. Creates an instance of RambleApp
-     * and runs the main workflow.
+     * with the necessary dependencies and runs the main workflow.
      * 
      * @param args command-line arguments (not used)
      */
     public static void main(String[] args) {
-        new RambleApp().run();
+        // Create dependencies
+        Tokenizer tokenizer = new LowercaseSentenceTokenizer();
+        UnigramWordPredictor predictor = new UnigramWordPredictor(tokenizer);
+        Scanner inputScanner = new Scanner(System.in);
+
+        RambleApp app = new RambleApp(tokenizer, predictor, inputScanner);
+        app.run();
     }
 }
