@@ -28,36 +28,36 @@ This is a large, difficult project. Start early, and get help when you need it.
 ## Setup
 
 1. Fork and clone this project. MAKE SURE TO CLONE FROM YOUR FORK. The clone URL should have your username in it.
-2. Change into the project directory:
+1. Change into the project directory:
     ```
     cd ramblebot
     ```
-3. Open the project in VS Code.
+1. Open the project in VS Code.
     ```
     code .
     ```
     If the above command does not work, you can open VS Code manually and select the ramblebot folder to open.
-4. Open `RambleApp.java`. Click anywhere in the text of the file
-5. Scroll to the bottom to find the `main` method. There should be a small grey "run" button above it. Click "Run".
+1. Open `RambleApp.java`. Click anywhere in the text of the file
+1. Scroll to the bottom to find the `main` method. There should be a small grey "run" button above it. Click "Run".
 ![Run Button in VS Code](images/run_button.png)
 Sometimes this button takes a little bit to show up when you first open VS Code. If you're not seeing it, make sure you have the Java extension pack installed and it is active.
-6. It should ask you for a filename. Give it the following filename:
+1. It should ask you for a filename. Give it the following filename:
     ```
     wikipediaData.txt
     ```
     Then hit enter.
-7. It should ask you for a number of words. Enter a positive integer and hit enter.
-8. You should expect to see an error message. This is good! The error message should end like this:
+1. It should ask you for a number of words. Enter a positive integer and hit enter.
+1. You should expect to see an error message. This is good! The error message should end like this:
     ```
     No tokens returned from tokenizer!
     This is probably because you haven't implemented it yet
     Begin with Wave 1 in the instructions, and implement LowercaseSentenceTokenizer
     If you have implemented it, there's a bug in your code where it's returning null for the tokens.
     ```
-9. Open the testing side panel by clicking on the beaker on the left of your screen. ![Test Runner Sidebar in VS Code](images/test_runner.png)
-10. Hover over `ramblebot`. A few grey triangles should appear. Click the triangle the furthest to the left.
-11. You should expect to see all the tests fail. This is good! You haven't written your solution yet, so it's expected for them to fail.
-12. Validate that you can push to your repo by making any change to this README, adding, committing, and pushing it.
+1. Open the testing side panel by clicking on the beaker on the left of your screen. ![Test Runner Sidebar in VS Code](images/test_runner.png)
+1. Hover over `ramblebot`. A few grey triangles should appear. Click the triangle the furthest to the left.
+1. You should expect to see all the tests fail. This is good! You haven't written your solution yet, so it's expected for them to fail.
+1. Validate that you can push to your repo by making any change to this README, adding, committing, and pushing it.
 
 ## Understanding the Project
 
@@ -89,7 +89,14 @@ In wave 3, you will finish the implementation of `tokenize`. Read the Javadoc ca
 In wave 4 you will finish the implementation of `train` in `UnigramWordPredictor`. There is already one line of the implementation provided for you, you do not need to change it. Write the rest of te implementation below it. Read the Javadoc on `train` carefully to understand what is expected. I also recommend reading `testTrainAndGetNeighborMap` in `UnigramWordPredictorTest` as it gives an example input/output. Successfully completing your code should make that test pass. This method is probably the hardest part of the project. Look back at compound data structures and ask for help from tutors or in office hours if needed. Make sure to add, commit, and push your code frequently!
 
 ## Wave 5
-In wave 5 you will implement `predictNextWord` in `UnigramWordPredictor`. As part of implementing this, you will need to research how to generate random numbers in Java. Read the Javadoc carefully, and read the comments on the remaining tests. Once you complete this wave, all tests in the project should pass. Congratulations, you finished the project! Make sure to add, commit, and push. 
+In wave 5 you will implement `predictNextWord` in `UnigramWordPredictor`. As part of implementing this, you will need to research how to generate random numbers in Java. Read the Javadoc carefully, and read the comments on the remaining tests. Once you complete this wave, all tests in the project should pass.
+
+## Wave 6
+In wave 6 you will validate that your bot works by having it generate new text. Choose some source of text (poems, songs, essays, etc) and put it in a new file in the root of the repository. Name it something descriptive like `oscarWildeTraining.txt`.
+
+Then, run the main method of `RambleApp.java` again (see instructions partway through the Getting Started section). Have it use your new text file. Have it generate at least 100 words. Save the output into a new file `ramblebotOutput.txt`. Experiment with different training data sources and see if you can have it make something funny/interesting/profound!
+
+Once you have it working and passing tests, congrats! You are finished! Make sure to add, commit, push, open a PR, and submit the link on Canvas. You can choose to continue on to the bonus extensions even if you have already made a PR. Your PR will automatically be updated with new commits you push.
 
 ## Bonus Extensions
 Consider doing any of the following (some are very hard!):
