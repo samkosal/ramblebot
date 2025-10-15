@@ -49,11 +49,53 @@ public class UnigramWordPredictor implements WordPredictor {
    * @param scanner the Scanner to read the training text from
    */
   public void train(Scanner scanner) {
+    // ("the", "cat", "sat", ".", "the", "cat", "slept", ".", "the", "dog", "barked", ".")
     List<String> trainingWords = tokenizer.tokenize(scanner);
+    // clear the hash map
+    neighborMap = new HashMap<>();
+
+    for (int i = 0; i < trainingWords.size() - 1; i++) {
+      // current iteration of word
+      String Word = trainingWords.get(i);
+      String WordAfter = trainingWords.get(i + 1);
+      //if the neighbormap does not have the key of the current iteration of words in it
+      if (!neighborMap.containsKey(Word)) {
+        if (WordAfter != null) {
+          // create a key and value
+          List<String> list = new ArrayList<>();
+          list.add(WordAfter);
+          neighborMap.put(Word, list);
+        }
+      }
+      else {
+        if (WordAfter != null) {
+          List<String> Newlist = neighborMap.get(Word);
+          Newlist.add(WordAfter);
+          neighborMap.put(Word, Newlist);
+        }
+      }
+        //grab the neighborMap Value section, aka grab the current list
+        // List<String> Newlist = neighborMap.get(Word);
+      
+    }
+
+    // neighborMap = Map.of(
+    //     "the", List.of("cat", "cat", "dog"),
+    //     "cat", List.of("sat", "slept"),
+    //     ".", List.of("the", "the"),
+    //     "dog", List.of("barked"),
+    //     "sat", List.of("."),
+    //     "slept", List.of("."),
+    //     "barked", List.of(".")
+    // );
 
     // TODO: Convert the trainingWords into neighborMap here
   }
 
+   public static void main(String[] args) {
+    LowercaseSentenceTokenizer tokenizer = new LowercaseSentenceTokenizer();
+    Scanner scanner = new Scanner("Hello world. This is Dr.Smith's example.");
+   }
   /**
    * Predicts the next word based on the given context.
    * The prediction is made by randomly selecting from all words 
